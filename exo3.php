@@ -195,7 +195,7 @@ echo $filecontent;
 
 
 ////////////////////////////
-suite:
+suite8:
 $xml= simplexml_load_file("example.xml") or die("cannot open file");
 
 
@@ -214,6 +214,7 @@ foreach ($xml->book->attributes() as $child)
 $result = $xml->xpath('//book[genre="Computer"]');
 $result = $xml->xpath("//book/pages");
 $result = $xml->xpath("count(//book/pages)");
+$result = $xml->xpath('//book[1]');
 echo "xpath:";
 print_r($result);
 die();
@@ -228,5 +229,21 @@ $cat->addChild("book3");
 
 
 echo $xml->asXml();
-$xml->asXml("resources/out.xml")
+$xml->asXml("resources/out.xml");
+
+
+////////////////////////
+suite:
+function arraytojson($users)
+{
+        $user = array("prenom" => "michel");
+        $user["id"] = 4;
+        $user["nom"] = "nialon";
+        echo (json_encode($user));
+
+}
+
+
+$user="";
+arraytojson($user);
 ?>
